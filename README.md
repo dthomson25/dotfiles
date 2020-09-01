@@ -11,4 +11,8 @@ cd ~/dotfiles
 
 ## Todo
 * Automate switching the CapLocks to Control and Control to CapsLock
-* Open Amphetamine/Reactangle and add to the SystemBar
+* Open Amphetamine/Reactangle and add to the SystemBarg
+* Remove Siri button from bar
+* Add Simplifed Chinese to Inputs
+* Add shortcut to switch Inputs
+* Git shortcuts

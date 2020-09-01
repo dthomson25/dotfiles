@@ -2,7 +2,7 @@ DOTFILEDIR=~/dotfiles
 # source $DOTFILEDIR/.paths
 source $DOTFILEDIR/.aliases
 source $DOTFILEDIR/.exports
-# source $DOTFILEDIR/.functions
+source $DOTFILEDIR/.functions
 
 # zsh history configuration
 HISTFILE=~/.zsh_history

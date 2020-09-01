@@ -16,7 +16,7 @@ brew cask install zoomus
 brew cask install visual-studio-code
 
 # A good terminal
-# brew cask install iterm2
+# brew cask install iterm2d
 brew install jq
 brew install zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
 
