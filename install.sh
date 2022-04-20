@@ -24,9 +24,11 @@ brew install zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
 # https://github.com/robbyrussell/oh-my-zsh
 brew install tree
 brew install wget
+brew install watch
 brew install tldr
 brew install thefuck
 brew cask install rectangle
+brew install fzf
 
 # DevOps/K8s
 brew cask install docker

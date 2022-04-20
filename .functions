@@ -1,2 +1,13 @@
 eval $(thefuck -a woops)
 eval $(thefuck -a fuck)
+eval $(kubectl completion zsh)
+
+# Generate a random string. Length based on the first arg
+random() {
+    LC_ALL=C tr -dc 'A-Za-z0-9!#$%&:' </dev/urandom | head -c $1 ; echo
+}
+
+strlen() {
+  var=$1
+  echo ${#var}
+}
