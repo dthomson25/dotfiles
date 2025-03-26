@@ -33,7 +33,7 @@ alias gc!='git commit -v --amend'
 alias gclean='git clean -id'
 alias gcom='git checkout $(git_main_branch)'
 alias gco='git checkout'
-
+alias gcor='git checkout $(git branch --sort="-committerdate" | head -n 100 | fzf)'
 alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
@@ -67,6 +67,13 @@ func gp() {
   fi
   g push
 }
+
+func gpo() {
+  url=$(gp | grep -o 'http[s]\?://[^ ]*');
+  echo $url
+  open $url
+}
+
 func gpm() {
   BRANCH="$(git rev-parse --abbrev-ref HEAD)"
   if [[ "$BRANCH" != "main" ]]; then
@@ -121,15 +128,16 @@ alias grbm='git rebase $(git_main_branch)'
 alias grbs='git rebase --skip'
 
 # Kubernetes
-[ -f ~/dotfiles/.kube-aliases ] && source ~/dotfiles/.kube-aliases
 alias kctx='kubectl ctx'
 alias kns='kubectl ns'
 alias ked='kubectl edit'
+[ -f ~/dotfiles/.kube-aliases ] && source ~/dotfiles/.kube-aliases
 
 alias kevents='kubectl get events --sort-by=.metadata.creationTimestamp'
 alias kro='kubectl argo rollouts'
 
 alias okteto-on='kubectl get pod -l dev.okteto.com=true'
+alias mysql-dev='kpf $(kgpo -o name -l app.kubernetes.io/name=mysql) 3307:3306'
 
 # VSCode
 
@@ -154,4 +162,3 @@ function ka(){
 
     ps aux  |  grep -i $1 |  grep -v grep   | awk '{print $2}' | xargs kill 
 }
-

@@ -11,3 +11,25 @@ strlen() {
   var=$1
   echo ${#var}
 }
+
+podname() {
+  kgpo -o name | fzf
+}
+
+logs() {
+  klo $(podname)
+}
+
+cert-ttl() {
+  kgsecoyaml $(kgsec -o name | fzf) -o jsonpath='{.data.tls\.crt}' | base64 --decode | openssl x509 -noout -enddate
+}
+
+gbdreg() {
+  git branch -d $(git branch | grep $1)
+}
+
+gbDreg() {
+  git branch -D $(git branch | grep $1)
+}
+
+

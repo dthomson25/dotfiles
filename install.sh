@@ -1,5 +1,7 @@
 set -ex
 
+git
+
 # install brew
 if ! command -v brew &> /dev/null
 then
@@ -14,7 +16,7 @@ brew install mas
 brew install slack --cask
 brew install google-chrome --cask
 brew install spotify --cask
-brew install zoom --cask
+brew install zoomus --cask
 brew install Discord --cask
 brew install visual-studio-code --cask
 brew install 1password --cask
@@ -25,7 +27,8 @@ brew install Discord --cask
 brew install iterm2 --cask
 brew install --cask warp
 brew install jq
-brew install zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
+brew install zsh zsh-completions zsh-syntax-highlighting
+
 
 # And definitely check plugins, templates, themes, etc. at:
 # https://github.com/robbyrussell/oh-my-zsh
