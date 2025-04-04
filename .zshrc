@@ -1,6 +1,8 @@
 
 DOTFILEDIR=~/dotfiles
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 # source $DOTFILEDIR/.paths
 source $DOTFILEDIR/.aliases
 source $DOTFILEDIR/.exports
@@ -26,9 +28,11 @@ compinit
 typeset -U fpath
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-# zsh autosuggestions and syntax-highlighting
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # zsh autosuggestions and syntax-highlighting
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 alias go1.18=~/sdk/go1.18.5/bin/go
 
@@ -38,7 +42,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# asdf
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
 export TEST_DB_USER='api'
 export TEST_DB_PASSWORD='password'
 export TEST_DB_SERVER_NAME='localhost:3306'

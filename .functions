@@ -1,5 +1,7 @@
-eval $(thefuck -a woops)
-eval $(thefuck -a fuck)
+if [[ "$OSTYPE" == "darwin"* ]]; then 
+  eval $(thefuck -a woops)
+  eval $(thefuck -a fuck)
+fi
 eval $(kubectl completion zsh)
 
 # Generate a random string. Length based on the first arg
